@@ -13,7 +13,7 @@ public enum ValidationResult: Comparable, Equatable {
     }
 }
 
-extension ValidationResult {
+public extension ValidationResult {
     var isValid: Bool {
         switch self {
         case .valid:
