@@ -1,7 +1,7 @@
 import Foundation
 
 struct ValidatorFactory {
-    static func createValidator(for type: ValidationType, target: String) -> Validatable {
+    static func createValidator(for type: ValidationRule, target: String) -> Validatable {
         switch type {
         case .empty:
             EmptyValidator(target: target)
