@@ -137,6 +137,27 @@ if validator.someValid(for: [.email, .username]) {
 }
 ````
 
+### Combining Multiple Validation Rules
+
+You can assign multiple validation rules to a single text field to ensure comprehensive validation. The Validator library processes these rules in the order they are given and applies all relevant checks:
+
+```swift
+validator.add(text: "user@example.com", forKey: .email, using: [.empty, .email])
+```
+
+### Error Message Priority
+When multiple validations are set for a single field, error messages will be prioritized based on the severity of the validation rule. The first failing rule's error message will be returned, allowing you to present the most critical validation feedback to the user first:
+
+```swift
+validator.add(text: "abc", forKey: .password, using: [.empty, .length(to: 8, from: 6), .strongPassword])
+
+let validationResult = validator.get(forKey: .password)
+if !validationResult.isValid {
+    print("Validation error: \(validationResult.error ?? "An error occurred")")
+}
+```
+Here, if abc is the input for the password field, the error message for .length will be displayed before the error for .strongPassword since it fails the length check first.
+
 ## Validation Rules
 
 The Validator library provides a set of built-in `ValidationRule`s that you can use to validate text fields. These rules include:
@@ -163,3 +184,14 @@ validator.add(text: "User123", forKey: .username, using: [.length(to: 10, from: 
 Each rule can be used individually or combined to create comprehensive validation for a text field.
 
 :warning: Note: Custom validation rules are not supported at the current stage. We are exploring ways to allow custom rule definitions and hope to include this functionality in future updates. Stay tuned!
+
+## UpComing
+In future updates to the Validator library, we aim to introduce several enhancements to make your validation logic even more powerful:
+
+- **Custom Validation Rules:** One of the most requested features is the ability to define custom validation rules. We're exploring ways to allow you to specify your own rules, providing greater flexibility and enabling you to tailor validation logic to your specific needs.
+
+## Contribution
+I would be happy if you contribute :)
+
+- [New issue](https://github.com/KantaSwift/TextValidator/issues/new)
+- [New pull request](https://github.com/KantaSwift/TextValidator/pulls)
