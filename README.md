@@ -1,4 +1,4 @@
-# ValidatorText
+# TextValidator
 ![Language:Swift](https://img.shields.io/static/v1?label=Language&message=Swift&color=green&style=flat-square)
 [![License](https://img.shields.io/github/license/KantaSwift/CustomTabBar)](https://github.com/KantaSwift/CustomTabBar/blob/main/LICENSE)
 [![Twitter](https://img.shields.io/twitter/follow/KantaSwift?style=social)](https://twitter.com/kanta_Swift)
@@ -10,6 +10,7 @@
 - [Installation](#installation)
 - [Basic Usage](#basic-usage)
 - [Tips](#tips)
+- [Validation Rules](#validation-rules)
 - [UpComing](#upcoming)
 - [Contribution](#contribution)
 
