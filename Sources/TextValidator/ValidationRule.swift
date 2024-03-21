@@ -1,6 +1,6 @@
 import Foundation
 
-public enum ValidationType: LocalizedError, Equatable {
+public enum ValidationRule: LocalizedError, Equatable {
     case empty
     case strongPassword
     case length(to: Int, from: Int? = nil)
@@ -20,7 +20,7 @@ public enum ValidationType: LocalizedError, Equatable {
     }
 }
 
-public extension ValidationType {
+public extension ValidationRule {
     var errorDescription: String? {
         switch self {
         case .empty:

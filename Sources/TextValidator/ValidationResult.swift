@@ -2,7 +2,7 @@ import Foundation
 
 public enum ValidationResult: Comparable, Equatable {
     case valid
-    case inValid(ValidationType)
+    case inValid(ValidationRule)
 
     public static func < (lhs: ValidationResult, rhs: ValidationResult) -> Bool {
         if case let .inValid(lhsError) = lhs,
